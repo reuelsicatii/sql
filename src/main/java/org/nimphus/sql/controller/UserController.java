@@ -96,8 +96,7 @@ public class UserController {
 	// java.util.ArrayList[0]->org.nimphus.sql.model.User$HibernateProxy$Z3U8Z0SI[\"hibernateLazyInitializer\"])
 	// **********************************************************************************************************
 	// Resolution: The problem is that entities are loaded lazily and serialization
-	// happens
-	// before they get loaded fully.
+	// happens before they get loaded fully.
 	@PostMapping(value = "/update/{id}/salary")
 	public List<User> updateSalary(@PathVariable("id") final Long id, @RequestBody final User user) {
 		User tempUser = userRepository.getOne(id);
@@ -119,8 +118,7 @@ public class UserController {
 	// java.util.ArrayList[0]->org.nimphus.sql.model.User$HibernateProxy$Z3U8Z0SI[\"hibernateLazyInitializer\"])
 	// **********************************************************************************************************
 	// Resolution: The problem is that entities are loaded lazily and serialization
-	// happens
-	// before they get loaded fully.
+	// happens before they get loaded fully.
 	@PostMapping(value = "/update/{id}/object")
 	public List<User> updatename(@PathVariable("id") final Long id, @RequestBody final User user) {
 		User tempUser = userRepository.getOne(id);

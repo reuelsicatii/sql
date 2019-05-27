@@ -46,6 +46,11 @@ public class UserContactController {
 		return UserContacts;
 	}
 	
+	// Needs to be resolved - RESOLVED
+	// =================================================================================
+	// "could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement"
+	// **********************************************************************************************************
+	// Resolution: Database. Set ID to IDENTITY. Clean/Drop DB
 	@PostMapping(value = "/addUserwithUserContact")
 	public List<UserContact> addUserwithUserContact(@RequestBody final List<UserContact> UserwithContacts) {
 
@@ -67,7 +72,7 @@ public class UserContactController {
 		}
 
 		userContactRepository.save(tempUserContact);
-		return UserwithContacts;
+		return userContactRepository.findAll();
 	}
 
 }
