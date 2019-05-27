@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -19,6 +20,9 @@ public class User {
 	private String name;
 	private String department;
 	private int salary;
+
+	@OneToOne
+	private UserContact userContact;
 
 	// Constructors
 	// =============================
@@ -58,6 +62,14 @@ public class User {
 
 	public void setSalary(int salary) {
 		this.salary = salary;
+	}
+
+	public UserContact getUserContact() {
+		return userContact;
+	}
+
+	public void setUserContact(UserContact userContact) {
+		this.userContact = userContact;
 	}
 
 	// ToString

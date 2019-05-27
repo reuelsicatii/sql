@@ -3,6 +3,7 @@ package org.nimphus.sql.controller;
 import java.util.List;
 
 import org.nimphus.sql.model.User;
+import org.nimphus.sql.model.UserContact;
 import org.nimphus.sql.repository.UserContactRepository;
 import org.nimphus.sql.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class UserController {
 		return userRepository.findAll();
 	}
 
-	// Needs to be resolved - OPEN
+	// Needs to be resolved - RESOLVE
 	// =================================================================================
 	// "JSON parse error: Cannot deserialize instance of `java.util.ArrayList` out
 	// of START_OBJECT token; nested exception is
@@ -49,28 +50,29 @@ public class UserController {
 	// deserialize instance of `java.util.ArrayList` out of START_OBJECT token\n at
 	// [Source: (PushbackInputStream); line: 1, column: 1]"
 	// **********************************************************************************************************
-	// Resolution: To be Determine
+	// Resolution: Please see UserContactController.addUserwithUserContact
 	@PostMapping(value = "/addUserwithContact")
 	public List<User> addUserwithContact(@RequestBody final List<User> UserswithContact) {
 
-//		User tempUser = new User();
-//		UserContact tempUserContact = new UserContact();
-//		for (User UserwithContact : UserswithContact) {
-//			System.out.println(UserwithContact.toString());
-//			tempUser.setName(UserwithContact.getName());
-//			tempUser.setDepartment(UserwithContact.getDepartment());
-//			tempUser.setSalary(UserwithContact.getSalary());
-//
-//			tempUserContact.setAddress_1(UserwithContact.getUserContact().getAddress_1());
-//			tempUserContact.setAddress_2(UserwithContact.getUserContact().getAddress_2());
-//			tempUserContact.setTelNo(UserwithContact.getUserContact().getTelNo());
-//			
-//			tempUser.setUserContact(tempUserContact);
-//
-//			userRepository.save(tempUser);
-//			userContactRepository.save(tempUserContact);
-//		}
+		User tempUser = new User();
+		UserContact tempUserContact = new UserContact();
+		for (User UserwithContact : UserswithContact) {
 
+			tempUser.setName(UserwithContact.getName());
+			tempUser.setDepartment(UserwithContact.getDepartment());
+			tempUser.setSalary(UserwithContact.getSalary());
+			System.out.println(tempUser.toString());
+
+			tempUserContact.setAddress_1(UserwithContact.getUserContact().getAddress_1());
+			tempUserContact.setAddress_2(UserwithContact.getUserContact().getAddress_2());
+			tempUserContact.setTelNo(UserwithContact.getUserContact().getTelNo());
+			System.out.println(tempUserContact.toString());
+
+			tempUser.setUserContact(tempUserContact);
+
+		}
+
+		userRepository.save(tempUser);
 		return UserswithContact;
 	}
 
