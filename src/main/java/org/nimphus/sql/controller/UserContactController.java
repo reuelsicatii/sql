@@ -54,24 +54,10 @@ public class UserContactController {
 	@PostMapping(value = "/addUserwithUserContact")
 	public List<UserContact> addUserwithUserContact(@RequestBody final List<UserContact> UserwithContacts) {
 
-		User tempUser = new User();
-		UserContact tempUserContact = new UserContact();
 		for (UserContact UserwithContact : UserwithContacts) {
-			tempUser.setName(UserwithContact.getUser().getName());
-			tempUser.setDepartment(UserwithContact.getUser().getDepartment());
-			tempUser.setSalary(UserwithContact.getUser().getSalary());
-			
-			tempUserContact.setAddress_1(UserwithContact.getAddress_1());
-			tempUserContact.setAddress_2(UserwithContact.getAddress_2());
-			tempUserContact.setTelNo(UserwithContact.getTelNo());
-			
-			System.out.println(tempUserContact.getAddress_1());
-			System.out.println(tempUserContact.getAddress_2());
-			System.out.println(tempUserContact.getTelNo());
-			tempUserContact.setUser(tempUser);
+			userContactRepository.save(UserwithContact);
 		}
-
-		userContactRepository.save(tempUserContact);
+		
 		return userContactRepository.findAll();
 	}
 
