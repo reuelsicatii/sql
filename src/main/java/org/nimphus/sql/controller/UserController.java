@@ -63,12 +63,12 @@ public class UserController {
 			tempUser.setSalary(UserwithContact.getSalary());
 			System.out.println(tempUser.toString());
 
-			tempUserContact.setAddress_1(UserwithContact.getUserContact().getAddress_1());
-			tempUserContact.setAddress_2(UserwithContact.getUserContact().getAddress_2());
-			tempUserContact.setTelNo(UserwithContact.getUserContact().getTelNo());
-			System.out.println(tempUserContact.toString());
-
-			tempUser.setUserContact(tempUserContact);
+//			tempUserContact.setAddress_1(UserwithContact.getUserContact().getAddress_1());
+//			tempUserContact.setAddress_2(UserwithContact.getUserContact().getAddress_2());
+//			tempUserContact.setTelNo(UserwithContact.getUserContact().getTelNo());
+//			System.out.println(tempUserContact.toString());
+//
+//			tempUser.setUserContact(tempUserContact);
 
 		}
 
