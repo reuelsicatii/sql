@@ -1,5 +1,7 @@
 package org.nimphus.sql.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +23,7 @@ public class User {
 	private String department;
 	private int salary;
 
-	@OneToOne
+	@OneToOne (mappedBy = "user")
 	private UserContact userContact;
 
 	// Constructors
