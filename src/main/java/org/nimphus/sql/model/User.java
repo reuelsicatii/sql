@@ -8,7 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -23,7 +25,8 @@ public class User {
 	private String department;
 	private int salary;
 
-	@OneToOne (mappedBy = "user")
+	@OneToOne (cascade = CascadeType.ALL,mappedBy = "user")
+	@JsonManagedReference
 	private UserContact userContact;
 
 	// Constructors
